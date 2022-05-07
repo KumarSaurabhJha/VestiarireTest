@@ -1,10 +1,7 @@
 package com.vestiarire.test.application
 
 import android.app.Application
-import com.vestiarire.test.di.domainModule
-import com.vestiarire.test.di.restApiModule
-import com.vestiarire.test.di.restRepositoryModule
-import com.vestiarire.test.di.retrofitModule
+import com.vestiarire.test.di.*
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -22,7 +19,8 @@ class MainApplication : Application() {
                 retrofitModule,
                 restApiModule,
                 domainModule,
-                restRepositoryModule
+                restRepositoryModule,
+                viewModelModule
             )
         }
 

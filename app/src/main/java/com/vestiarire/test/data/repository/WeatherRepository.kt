@@ -2,16 +2,19 @@ package com.vestiarire.test.data.repository
 
 import com.vestiarire.test.data.api.RestApi
 import com.vestiarire.test.data.model.WeatherForecastList
+import com.vestiarire.test.data.model.WeatherRequestHeader
 import com.vestiarire.test.domain.model.DesiredWeatherConditions
 
 class WeatherRepository(private val restApi: RestApi) {
 
-    suspend fun getWeatherForecast(header: DesiredWeatherConditions): WeatherForecastList =
-        restApi.getWeather(
-            header.cityName,
-            header.mode,
-            header.units,
-            header.count,
-            header.appId
+    suspend fun getWeatherForecast(input: DesiredWeatherConditions): WeatherForecastList {
+        val header = WeatherRequestHeader(cityName = input.cityName, count = input.count)
+        return restApi.getWeather(
+            cityName = header.cityName,
+            mode = header.mode,
+            units = header.units,
+            count = header.count,
+            appId = header.appId
         )
+    }
 }
