@@ -1,6 +1,6 @@
 package com.vestiarire.test.data.api
 
-import com.vestiarire.test.data.model.WeatherForecastList
+import com.vestiarire.test.data.model.WeatherForecast
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -13,5 +13,5 @@ interface RestApi {
         @Query("units") units: String,
         @Query("cnt") count: Int,
         @Query("APPID") appId: String
-    ): WeatherForecastList
+    ): WeatherForecast
 }

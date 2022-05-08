@@ -1,5 +1,6 @@
 package com.vestiarire.test.presentation.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.vestiarire.test.domain.model.DesiredWeatherConditions
@@ -29,10 +30,13 @@ class WeatherForecastViewModel(private val getWeatherForeCastUseCase: GetWeather
                     count = numberOfDaysNeeded
                 )
             )
+
+            Log.e("Kumi", "weather forecadt: $response")
         }
+
     }
 
-    private fun cancelFetchJob() {
+    fun cancelFetchJob() {
         fetchWeatherDataJob?.let {
             if (it.isActive) {
                 it.cancel()
