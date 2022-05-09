@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Vestiarire Test</string>
+    <string name="item_daily_forecast_temperature_range">From %1$s °C  to  %2$s °C</string>
+
 </resources>
